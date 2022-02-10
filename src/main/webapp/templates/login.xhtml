@@ -20,7 +20,8 @@
 	<p:outputLabel value="Informe suas credenciais para entrar no sistema" />
 	<br/>
 	<br/>
-	<h:form style="display: inline-block;">
+	<h:form id="gerencia" style="display: inline-block;">
+		<p:messages id="teste" autoUpdate="true" />
     	<p:panelGrid columns="2">
 	      	<p:outputLabel for="loginUsuario" value="Login:" />
 	      	<p:inputText id="loginUsuario" value="#{LoginMB.usuario.login}" />
@@ -29,7 +30,7 @@
 	      	<p:password id="senha" value="#{LoginMB.usuario.senha}" />
     	</p:panelGrid>
     	<br/>
-    	<p:commandButton value="Entrar" icon="ui-icon-star" action="#{LoginMB.envia}" ajax="false"></p:commandButton>
+    	<p:commandButton value="Entrar" icon="ui-icon-star" action="#{LoginMB.validaLogin}" ajax="false"></p:commandButton>
     </h:form>
 </h:body>
 

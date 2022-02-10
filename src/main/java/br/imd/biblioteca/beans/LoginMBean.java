@@ -1,12 +1,16 @@
 package br.imd.biblioteca.beans;
 
+import java.io.IOException;
 import java.io.Serializable;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 import br.imd.biblioteca.dao.UsuarioDAO;
 import br.imd.biblioteca.dominio.Usuario;
+import br.imd.biblioteca.util.BibliotecaException;
 
 
 @ManagedBean(name = "LoginMB")
@@ -37,10 +41,19 @@ public class LoginMBean implements Serializable{
 		this.usuarioDAO = usuarioDAO;
 	}
 	
-	public void envia() {
+	public void validaLogin() throws BibliotecaException, IOException {
 
-		System.out.println(usuario.getLogin());
-
+	    for (Usuario user : usuarioDAO.listar()) {
+	        if (user.getLogin().equals(usuario.getLogin())) {
+	            if (user.getSenha().equals(usuario.getSenha())) {
+	            	FacesContext.getCurrentInstance().getExternalContext().redirect("clienteForm.xhtml");
+	            }
+	        }
+	    }
+	    
+	    FacesContext.getCurrentInstance().addMessage(":gerencia:teste", new FacesMessage(FacesMessage.SEVERITY_INFO,"Credenciais inválidas.", "PrimeFaces rocks!"));  
+        FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
+	    
 	}
 	
 }
