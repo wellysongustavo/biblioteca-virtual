@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title><ui:insert name="title" /></title>
+	<h:outputStylesheet library="css" name="style.css"/>
+	<ui:insert name="resources" /> 
+</h:head>
+
+<h:body>
+	<div class="p-col-12" style="text-align: center;">
+		
+		<b><p:outputLabel value="Seja bem-vindo(a)!" /></b>
+		<br/>
+		<b><p:outputLabel value="Informe qual área do sistema deseja acessar" /></b>
+		<br/><br/><br/>
+			<div class="ui-fluid p-formgrid p-grid">
+	            <div class="p-field p-col">
+	            </div>
+	            <div class="p-field p-col">
+					<br/>
+					<a href="login.xhtml">
+						<h:graphicImage value="/resources/images/logo.png" style="width: 150px;" /><br/><br/>
+		            	Administrador
+	            	</a>
+	            </div>
+	            <div class="p-field p-col">
+	            	<br/>
+					<h:graphicImage value="/resources/images/logo.png" style="width: 150px;" /><br/><br/>
+	            	Cliente
+	            </div>
+	            <div class="p-field p-col">
+	            </div>
+	        </div>
+	</div>
+
+</h:body>
+
+</html>

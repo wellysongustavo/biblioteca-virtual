@@ -51,7 +51,7 @@ public class LoginMBean implements Serializable{
 	        }
 	    }
 	    
-	    FacesContext.getCurrentInstance().addMessage(":gerencia:teste", new FacesMessage(FacesMessage.SEVERITY_INFO,"Credenciais inválidas.", "PrimeFaces rocks!"));  
+	    FacesContext.getCurrentInstance().addMessage(":gerencia:msgLoginInvalido", new FacesMessage(FacesMessage.SEVERITY_INFO,"Credenciais inválidas.", "PrimeFaces rocks!"));  
         FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
 	    
 	}
