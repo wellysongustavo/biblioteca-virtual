@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+body {
+	min-height: 100%;
+}
+
+button.ui-button {
+   margin-right: .5rem;
+ }
+
+
