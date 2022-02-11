@@ -41,18 +41,20 @@ public class LoginMBean implements Serializable{
 		this.usuarioDAO = usuarioDAO;
 	}
 	
-	public void validaLogin() throws BibliotecaException, IOException {
+	public String validaLogin() throws BibliotecaException, IOException {
 
 	    for (Usuario user : usuarioDAO.listar()) {
 	        if (user.getLogin().equals(usuario.getLogin())) {
 	            if (user.getSenha().equals(usuario.getSenha())) {
-	            	FacesContext.getCurrentInstance().getExternalContext().redirect("clienteForm.xhtml");
+	            	FacesContext.getCurrentInstance().getExternalContext().redirect("pagina-inicial.xhtml");
+	            	return "clienteForm.xhtml";
 	            }
 	        }
 	    }
 	    
 	    FacesContext.getCurrentInstance().addMessage(":gerencia:msgLoginInvalido", new FacesMessage(FacesMessage.SEVERITY_INFO,"Credenciais inválidas.", "PrimeFaces rocks!"));  
-        FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
+        //FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
+        return "login.xhtml";
 	    
 	}
 	
