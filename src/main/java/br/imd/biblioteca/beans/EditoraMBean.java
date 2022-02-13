@@ -1,17 +1,19 @@
 package br.imd.biblioteca.beans;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
 import br.imd.biblioteca.dao.EditoraDAO;
 import br.imd.biblioteca.dominio.Editora;
 import br.imd.biblioteca.util.BibliotecaException;
 
-@ManagedBean
+@ManagedBean(name = "EditoraMB")
 @ViewScoped
 public class EditoraMBean implements Serializable{
 
@@ -24,7 +26,19 @@ public class EditoraMBean implements Serializable{
 	private EditoraDAO editoraDAO = new EditoraDAO();
 	private Integer editoraId;
 	private String editoraNome;
+	private List<Editora> editoras;
 	
+	public EditoraMBean() throws BibliotecaException {
+		 editoras = this.getLista();
+	}
+
+	public List<Editora> getEditoras() {
+		return editoras;
+	}
+
+	public void setEditoras(List<Editora> editoras) {
+		this.editoras = editoras;
+	}
 
 	public Editora getEditora() {
 		return editora;
@@ -79,7 +93,22 @@ public class EditoraMBean implements Serializable{
 		this.editoraNome = this.editora.getNome();
 	}
 	
+	public void goListagemEditora() throws BibliotecaException, IOException {
+		
+		System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath());	
+		FacesContext.getCurrentInstance().getExternalContext().redirect(
+				FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath()
+				+"/gerencia/editora.xhtml");
+	        
+    }
 	
-
+	public void goCadastroEditora() throws BibliotecaException, IOException {
+   		
+		FacesContext.getCurrentInstance().getExternalContext().redirect(
+				FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath()
+				+"/gerencia/editora/cadastro.xhtml");
+	        
+    }
+	
 }
 

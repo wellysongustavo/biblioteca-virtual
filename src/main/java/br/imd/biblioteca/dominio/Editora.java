@@ -31,7 +31,7 @@ public class Editora implements Serializable{
 	private String nome;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "livro_id")
+	@JoinColumn(name = "livro_id", nullable = true)
 	private Set<Livro> livros;
 	
 	public Editora(String nome) {

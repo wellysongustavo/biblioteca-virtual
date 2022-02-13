@@ -8,15 +8,13 @@
 	xmlns:p="http://primefaces.org/ui">
 
 
-<h:body>
 	<ui:composition>
 		<div class="card">
 			<h:form>
-
 				<p:menu>
 					<p:submenu label="Editoras">
-						<p:menuitem value="Nova Editora" action="/editora/editoraForm?faces-redirect=true" icon="pi pi-plus-circle" />
-						<p:menuitem value="Lista de Editoras" action="/editora/editoraLista?faces-redirect=true"
+						<p:menuitem value="Nova Editora" action="#{EditoraMB.goCadastroEditora}" icon="pi pi-plus-circle" />
+						<p:menuitem value="Lista de Editoras" action="#{EditoraMB.goListagemEditora}" 
 							icon="pi pi-list" />
 					</p:submenu>
 					<p:submenu label="Livros">
@@ -34,7 +32,5 @@
 		</div>
 
 	</ui:composition>
-</h:body>
-
 
 </html>

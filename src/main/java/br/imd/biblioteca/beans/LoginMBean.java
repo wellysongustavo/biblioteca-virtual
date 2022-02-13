@@ -46,7 +46,9 @@ public class LoginMBean implements Serializable{
 	    for (Usuario user : usuarioDAO.listar()) {
 	        if (user.getLogin().equals(usuario.getLogin())) {
 	            if (user.getSenha().equals(usuario.getSenha())) {
-	            	FacesContext.getCurrentInstance().getExternalContext().redirect("pagina-inicial.xhtml");
+	            	FacesContext.getCurrentInstance().getExternalContext().redirect(
+	        			FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath()
+	    				+"/gerencia/editora.xhtml");
 	           }
 	        }
 	    }
