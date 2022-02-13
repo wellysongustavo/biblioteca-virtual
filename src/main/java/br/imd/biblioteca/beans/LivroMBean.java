@@ -1,9 +1,11 @@
 package br.imd.biblioteca.beans;
 
+import java.io.IOException;
 import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
 import br.imd.biblioteca.dao.LivroDAO;
@@ -80,8 +82,11 @@ public class LivroMBean implements Serializable{
 	
 	//Ações
 	
-	public void apagar(Livro livro) throws BibliotecaException {
+	public void apagar(Livro livro) throws BibliotecaException, IOException {
 		livroDAO.excluir(livro);
+		FacesContext.getCurrentInstance().getExternalContext().redirect(
+    			FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath()
+				+"/gerencia/livro.xhtml");
 	}
 	
 	public void editar(Livro livro) {

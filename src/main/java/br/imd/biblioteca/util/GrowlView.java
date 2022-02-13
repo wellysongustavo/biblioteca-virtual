@@ -25,6 +25,26 @@ public class GrowlView {
     public void showErrorCadastroEditora() {
         addMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Já existe uma editora cadastrada com esse nome!");
     }
+    
+    public void showAtualizacaoEditora() {
+        addMessage(FacesMessage.SEVERITY_WARN, "Info", "Editora atualizada com sucesso!");
+    }
+    
+    public void showCadastroLivro() {
+        addMessage(FacesMessage.SEVERITY_INFO, "Info", "Livro cadastrado com sucesso!");
+    }
+
+    public void showRemocaoLivro() {
+        addMessage(FacesMessage.SEVERITY_WARN, "Info", "Livro removido com sucesso!");
+    }
+
+    public void showErrorCadastroLivro() {
+        addMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Já existe um Livro cadastrada com esse nome!");
+    }
+    
+    public void showErrorAtualizacaoLivro() {
+        addMessage(FacesMessage.SEVERITY_ERROR, "Info", "Livro atualizado com sucesso!");
+    }
 
     public void showSticky() {
         FacesContext.getCurrentInstance().addMessage("sticky-key", new FacesMessage(FacesMessage.SEVERITY_INFO, "Sticky Message", "Message Content"));

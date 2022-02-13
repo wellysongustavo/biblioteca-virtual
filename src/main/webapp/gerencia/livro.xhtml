@@ -29,10 +29,10 @@
 			</ui:insert>
 	    </div>
 	    <div class="op2" style="vertical-align: top;">
-	    	<h:outputLabel><b>Listagem de Editoras</b></h:outputLabel>
+	    	<h:outputLabel><b>Listagem de Livros</b></h:outputLabel>
 	    	<br/><br/>
 	    	<h:dataTable 
-	    		value="#{EditoraMB.editoras}" var="ed"
+	    		value="#{LivroMB.livros}" var="ed"
     			styleClass="order-table"
     			headerClass="order-table-header"
     			rowClasses="order-table-odd-row,order-table-even-row"
@@ -41,14 +41,14 @@
        			<p:growl id="growl-sticky" for="sticky-key" showDetail="true"/>
     			<h:column>
     				<f:facet name="header">Nome</f:facet>
-    				#{ed.nome}
+    				#{livro.nome}
     			</h:column>
     			<h:column>
     				<f:facet name="header">Opções</f:facet>
-    				<p:commandButton icon="pi pi-pencil p-px-2" styleClass="ui-button-warning p-mr-2" action="#" 
-    					actionListener="#{GrowlView.showErrorAtualizacaoEditora}" update="growl" />
-    				<p:commandButton icon="pi pi-trash p-px-2" styleClass="ui-button-danger p-mr-2" action="#{EditoraMB.apagar(ed)}" 
-    					actionListener="#{GrowlView.showRemocaoEditora}" update="growl" />
+    				<p:commandButton icon="pi pi-pencil p-px-2" styleClass="ui-button-warning p-mr-2" action="#"
+    					actionListener="#{GrowlView.showErrorAtualizacaoLivro}" update="growl" />
+    				<p:commandButton icon="pi pi-trash p-px-2" styleClass="ui-button-danger p-mr-2" action="#{LivroMB.apagar(livro)}" 
+    					actionListener="#{GrowlView.showRemocaoLivro}" update="growl" />
     			</h:column>
     		
     		</h:dataTable>
