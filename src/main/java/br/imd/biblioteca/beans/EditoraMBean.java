@@ -66,8 +66,11 @@ public class EditoraMBean implements Serializable{
 	
 	//Ações
 	
-	public void apagar(Editora editora) throws BibliotecaException {
+	public void apagar(Editora editora) throws BibliotecaException, IOException {
 		editoraDAO.excluir(editora);
+		FacesContext.getCurrentInstance().getExternalContext().redirect(
+    			FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath()
+				+"/gerencia/editora.xhtml");
 	}
 	
 	public List<Editora> getLista() throws BibliotecaException{

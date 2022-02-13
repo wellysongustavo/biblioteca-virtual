@@ -37,7 +37,8 @@
     			headerClass="order-table-header"
     			rowClasses="order-table-odd-row,order-table-even-row"
     			columnClasses="first,second">
-    			
+    			<p:growl id="growl" showDetail="true" />
+       			<p:growl id="growl-sticky" for="sticky-key" showDetail="true"/>
     			<h:column>
     				<f:facet name="header">Nome</f:facet>
     				#{ed.nome}
@@ -45,7 +46,8 @@
     			<h:column>
     				<f:facet name="header">Opções</f:facet>
     				<p:commandButton icon="pi pi-pencil p-px-2" styleClass="ui-button-warning p-mr-2" action="#" />
-    				<p:commandButton icon="pi pi-trash p-px-2" styleClass="ui-button-danger p-mr-2" action="#{EditoraMB.apagar(ed)}" />
+    				<p:commandButton icon="pi pi-trash p-px-2" styleClass="ui-button-danger p-mr-2" action="#{EditoraMB.apagar(ed)}" 
+    					actionListener="#{GrowlView.showRemocaoEditora}" update="growl" />
     			</h:column>
     		
     		</h:dataTable>

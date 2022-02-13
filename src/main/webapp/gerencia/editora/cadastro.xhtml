@@ -31,11 +31,14 @@
 	    <div class="op2" style="vertical-align: top;">
 	    	<h:outputLabel><b>Cadastro de Editoras</b></h:outputLabel>
 	    	<br/><br/>
-	    	<h:form id="formLogin">
+	    	<h:form id="formCadastroEditora">
                 <h:panelGrid cellspacing="10">          
-                    <p:messages id="messagesLogin"/>
+                    <p:growl id="growl" showDetail="true" />
+        			<p:growl id="growl-sticky" for="sticky-key" showDetail="true"/>
+                    
                     <p:inputText placeholder="Digite o nome da nova editora" value="#{EditoraMB.editora.nome}" size="40" required="True" />
-                    <p:commandButton value="Cadastrar" action="#{EditoraMB.gravar()}" update="messagesLogin"/>
+                    <p:commandButton value="Cadastrar" action="#{EditoraMB.gravar()}" actionListener="#{GrowlView.showCadastroEditora}" update="growl" styleClass="p-mr-2" style="width: 10rem"/>
+					
                 </h:panelGrid>
             </h:form>
     	</div>
